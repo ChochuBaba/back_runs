@@ -37,7 +37,8 @@ console.log('what is this')
 mongoose.set("strictQuery", false)
 mongoose.connect('mongodb+srv://tanishq1357:chochubaba@firstone.gvgqox8.mongodb.net/?retryWrites=true&w=majority&appName=FirstOne').then(()=> {
     console.log('i have the database connected right now');
-    app.listen(3000, ()=> {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, ()=> {
         console.log('server is running'
         );
     });
