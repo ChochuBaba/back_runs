@@ -2,9 +2,13 @@ const express = require('express')
 const mongoose = require('mongoose')
 const Run = require('./model/countModel')
 const app = express()
+const cors = require('cors');
 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+app.use(cors({
+    origin: 'http://localhost:3000'
+  }));
 
 //routes
 
