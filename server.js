@@ -7,7 +7,7 @@ const cors = require('cors');
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: 'https://wondrous-lokum-c86ec9.netlify.app'
   }));
 
 //routes
