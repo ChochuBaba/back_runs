@@ -16,6 +16,10 @@ app.get('/', (req, res) => {
     res.send('Hello NODE API')
 })
 
+app.get('/ping',(req,res) =>{
+    res.send('pong');
+    
+})
 
 app.get('/runs/latest', async (req, res) => {
     try {
