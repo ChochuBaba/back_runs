@@ -17,14 +17,14 @@ app.get('/', (req, res) => {
 })
 
 
-app.get('/runs', async(req, res) => {
+app.get('/runs/latest', async (req, res) => {
     try {
-        const runs = await Run.find({});
-        res.status(200).json(runs);
+        const latestRuns = await Run.find().sort({ createdAt: -1 }).limit(5);
+        res.status(200).json(latestRuns);
     } catch (error) {
-        res.status(500).json({message: error.message})
+        res.status(500).json({ message: error.message });
     }
-})
+});
 
 
 app.post('/runs', async(req, res) => {
@@ -37,11 +37,13 @@ app.post('/runs', async(req, res) => {
         res.status(500).json({message: error.message})
     }
 })
+
+
 console.log('what is this')
 mongoose.set("strictQuery", false)
 mongoose.connect('mongodb+srv://tanishq1357:chochubaba@firstone.gvgqox8.mongodb.net/?retryWrites=true&w=majority&appName=FirstOne').then(()=> {
     console.log('i have the database connected right now');
-    const PORT = process.env.PORT || 3000;
+    const PORT = process.env.PORT || 4000;
     app.listen(PORT, ()=> {
         console.log('server is running'
         );
