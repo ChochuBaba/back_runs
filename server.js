@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 
 app.get('/runs/latest', async (req, res) => {
     try {
-        const latestRuns = await Run.find().sort({ createdAt: -1 }).limit(5);
+        const latestRuns = await Run.find().sort({ createdAt: -1 }).limit(2);
         res.status(200).json(latestRuns);
     } catch (error) {
         res.status(500).json({ message: error.message });
